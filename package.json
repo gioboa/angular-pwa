@@ -1,0 +1,26 @@
+{
+  "name": "angular-pwa",
+  "version": "1.0.0",
+  "description": "Angular PWA project with service worker, add to home screen feature and push notification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gioboa/angular-pwa.git"
+  },
+  "keywords": [
+    "Angular",
+    "PWA",
+    "Service worker",
+    "push notification",
+    "home screen"
+  ],
+  "author": "gioboa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gioboa/angular-pwa/issues"
+  },
+  "homepage": "https://github.com/gioboa/angular-pwa#readme"
+}
