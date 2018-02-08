@@ -18,24 +18,21 @@ to prevent CORS origin error <br />
 
 #how use server <br />
 
-to fire notification use this settings
-e.g.
-var settings = {
-"async": true,
-"crossDomain": true,
-"url": "http://localhost:8080/notify", <- your server ip
-"method": "POST",
-"headers": {
-"accept": "application/json, text/plain, _/_",
-"origin": "http://localhost:8081",
-"x-devtools-emulate-network-conditions-client-id": "(70FB45AACD9B24AFB9FFB215A7C37525)",
-"user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36",
-"content-type": "application/json",
-"referer": "http://localhost:8081/",
-"accept-encoding": "gzip, deflate, br",
-"accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
-"auth-secret": "ALL", <- this is the secret code store in server.js
-"cache-control": "no-cache",
-"postman-token": "0cd89759-fcb9-30b9-0bed-e7312e4d3880"
-}
-}
+to fire notification use this settings <br />
+e.g. <br />
+var settings = { <br />
+"async": true, <br />
+"crossDomain": true, <br />
+"url": "http://localhost:8080/notify", <- your server ip <br />
+"method": "POST", <br />
+"headers": { <br />
+"accept": "application/json, text/plain, _/_", <br />
+"origin": "http://localhost:8081", <br />
+"content-type": "application/json", <br />
+"referer": "http://localhost:8081/", <br />
+"accept-encoding": "gzip, deflate, br", <br />
+"accept-language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7", <br />
+"auth-secret": "ALL", <- this is the secret code store in server.js <br />
+"cache-control": "no-cache", <br />
+} <br />
+} <br />
