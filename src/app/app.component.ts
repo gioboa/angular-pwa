@@ -16,6 +16,10 @@ export class AppComponent {
                   window.location.reload();
               }
           });
-      }        
+      } 
+  }
+
+  public subscribe(): void {
+      console.log('subscribe');
   }
 }

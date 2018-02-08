@@ -1,0 +1,9 @@
+.container{
+  max-width: 300px;
+  margin: 100px auto;
+}
+
+.title-center {
+  margin: 0 auto;
+  text-align: center;
+}

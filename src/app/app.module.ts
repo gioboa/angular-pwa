@@ -6,16 +6,26 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { PushService } from './services/push.service';
+import { ControlPushComponent } from './components/control-push/control-push.component';
+import { ConfigService } from './services/config.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, ControlPushComponent
   ],
   imports: [
-    BrowserModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    MatCardModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [PushService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
