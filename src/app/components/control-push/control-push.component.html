@@ -5,13 +5,13 @@
 
   <mat-card-content>
     <p>
-      You are automatically subscribed to push notification, click below to unsubscribe.      
+      You are automatically subscribed to push notification, click below to unsubscribe.
     </p>
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-button (click)="subscribeToPush()" *ngIf="!isSubscribe">Subscribe</button>
-    <button mat-button (click)="unsubscribeFromPush()" *ngIf="isSubscribe">Unsubscribe</button>
+    <button mat-raised-button (click)="subscribeToPush()" *ngIf="!isSubscribe">Subscribe</button>
+    <button mat-raised-button (click)="unsubscribeFromPush()" *ngIf="isSubscribe">Unsubscribe</button>
   </mat-card-actions>
 
 </mat-card>

@@ -6,7 +6,7 @@ import { SwUpdate } from '@angular/service-worker';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  constructor(private swUpdate: SwUpdate) { }
+  constructor(private swUpdate: SwUpdate) {}
 
   ngOnInit() {
     if (this.swUpdate.isEnabled) {
@@ -15,6 +15,6 @@ export class AppComponent implements OnInit {
           window.location.reload();
         }
       });
-   }
+    }
   }
 }

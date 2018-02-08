@@ -1,7 +1,8 @@
 {
   "name": "angular-pwa",
   "version": "1.0.0",
-  "description": "Angular PWA project with service worker, add to home screen feature and push notification",
+  "description":
+    "Angular PWA project with service worker, add to home screen feature and push notification",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -27,7 +28,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "http-server -c-1 ./dist -o"
+    "serve": "http-server -c-1 ./dist -o -p8081 -a localhost"
   },
   "private": true,
   "dependencies": {

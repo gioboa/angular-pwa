@@ -10,16 +10,17 @@ import { ConfigService } from './config.service';
 
 @Injectable()
 export class PushService {
-
-  private API_URL: string
+  private API_URL: string;
 
   constructor(private http: HttpClient, private configService: ConfigService) {
-    this.API_URL = this.configService.get('API_URL')
+    this.API_URL = this.configService.get('API_URL');
   }
 
   urlBase64ToUint8Array(base64String) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+    const base64 = (base64String + padding)
+      .replace(/\-/g, '+')
+      .replace(/_/g, '/');
     const rawData = window.atob(base64);
     const outputArray = new Uint8Array(rawData.length);
     for (let i = 0; i < rawData.length; ++i) {
@@ -30,28 +31,23 @@ export class PushService {
 
   addSubscriber(subscription) {
     const url = `${this.API_URL}/subscribe`;
-    console.log('[Push Service] Adding subscriber')
-    let body = {
+    console.log('[Push Service] Adding subscriber');
+    const body = {
       action: 'subscribe',
       subscription: subscription,
-      name: (Math.floor(Math.random() * 100)).toString()
-    }
-    return this.http
-      .post(url, body)
-      .catch(this.handleError);
+      name: Math.floor(Math.random() * 100).toString()
+    };
+    return this.http.post(url, body).catch(this.handleError);
   }
 
   deleteSubscriber(subscription) {
     const url = `${this.API_URL}/unsubscribe`;
-    console.log('[Push Service] Deleting subscriber')
-    let body = {
+    console.log('[Push Service] Deleting subscriber');
+    const body = {
       action: 'unsubscribe',
       subscription: subscription
-    }
-    return this.http
-      .post(url, body)
-      .catch(this.handleError);
-
+    };
+    return this.http.post(url, body).catch(this.handleError);
   }
 
   private handleError(error: Response | any) {
@@ -63,5 +59,4 @@ export class PushService {
     }
     return Observable.throw(errMsg);
   }
-
 }
