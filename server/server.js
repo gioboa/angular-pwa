@@ -11,7 +11,7 @@ let app = express();
 
 let subscribers = [];
 
-let VAPID_SUBJECT = "mailto:ciao@ciao.it";
+let VAPID_SUBJECT = "mailto:name@name.com";
 let VAPID_PUBLIC_KEY = "BMlVY3kgdA_t_LdK3vuQTll4uEnsSXFpj857hMmwgd--1YN9a0ge2QNRCoWmmv-xJ24Gk4PiRY2tBhVfJqULF1Y";
 let VAPID_PRIVATE_KEY = "9qycWpG_PmBAPgtMsFj80XEMFFWiaV8ka_TSJSBXbOA";
 
