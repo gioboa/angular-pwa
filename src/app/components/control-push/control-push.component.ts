@@ -15,9 +15,12 @@ export class ControlPushComponent implements OnInit {
   private VAPID_PUBLIC_KEY: string;
   public isSubscribe: boolean;
 
-  constructor(private pushService: PushService, private configService: ConfigService, private swPush: SwPush, public snackBar: MatSnackBar) {}
+  constructor(private pushService: PushService,
+    private configService: ConfigService,
+    private swPush: SwPush,
+    public snackBar: MatSnackBar) {}
 
-  ngOnInit() { 
+  ngOnInit() {
     this.VAPID_PUBLIC_KEY = this.configService.get('VAPID_PUBLIC_KEY');
     this.subscribeToPush();
   }
@@ -30,7 +33,7 @@ export class ControlPushComponent implements OnInit {
         // Passing subscription object to our backend
         this.pushService.addSubscriber(pushSubscription).subscribe(
           res => {
-            console.log('[App] Successful add subscriber request answer', res)
+            console.log('[App] Successful add subscriber request answer', res);
             this.subscribeToShowMessages();
             this.isSubscribe = true;
           },
@@ -39,7 +42,7 @@ export class ControlPushComponent implements OnInit {
     })
     .catch(err => {
       console.error(err);
-    })
+    });
   }
 
   unsubscribeFromPush() {
@@ -47,7 +50,7 @@ export class ControlPushComponent implements OnInit {
     this.swPush.subscription
       .take(1)
       .subscribe(pushSubscription => {
-        console.log('[App] pushSubscription', pushSubscription)
+        console.log('[App] pushSubscription', pushSubscription);
         // Delete the subscription from the backend
         this.pushService.deleteSubscriber(pushSubscription).subscribe(
           res => {
@@ -55,10 +58,10 @@ export class ControlPushComponent implements OnInit {
             // Unsubscribe current client (browser)
             pushSubscription.unsubscribe()
               .then(success => {
-                console.log('[App] Unsubscription successful', success)
+                console.log('[App] Unsubscription successful', success);
                 this.isSubscribe = false;
               })
-              .catch(err => console.log('[App] Unsubscription failed', err))
+              .catch(err => console.log('[App] Unsubscription failed', err));
           },
           err => console.log('[App] Delete subscription request failed', err)
         );
@@ -68,7 +71,7 @@ export class ControlPushComponent implements OnInit {
   subscribeToShowMessages() {
     this.swPush.messages.subscribe(message => {
       console.log('[App] Push message received', message['message']);
-      let snackBarRef = this.snackBar.open(message['message'], null, {
+      const snackBarRef = this.snackBar.open(message['message'], null, {
         duration: 2000
       });
     });
