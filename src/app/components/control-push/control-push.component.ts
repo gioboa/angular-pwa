@@ -86,11 +86,9 @@ export class ControlPushComponent implements OnInit {
           duration: 2000
         });
       } else if (Notification['permission'] === 'granted') {
-        console.log('a');
         this.showNotification(payload);
       } else if (Notification['permission'] !== 'denied') {
         Notification.requestPermission(function(permission) {
-          console.log('b');
           if (permission === 'granted') {
             this.showNotification(payload);
           }
