@@ -49,7 +49,7 @@ app.post('/notify', function(req, res) {
         : subscribers.filter(subscriber => subscriber.name === authSecret);
     let message = req.query.message || `Follow gioboa on GitHub :-)`;
     let clickTarget = req.query.clickTarget || `https://github.com/gioboa`;
-    let title = req.query.title || `gioboa GitHub`;
+    let title = req.query.title || `Follow gioboa on GitHub :-)`;
 
     subscribers.forEach(subscriber => {
       let payload = JSON.stringify({
@@ -107,7 +107,5 @@ app.post('/unsubscribe', function(req, res) {
   res.send(JSON.parse('{"message": "Subscription removed!"}'));
 });
 
-let PORT = process.env.PORT || 8080;
-app.listen(PORT, function() {
-  console.log(`push_server listening on port ${PORT}!`);
-});
+app.use(express.static(__dirname + '/dist'));
+app.listen(process.env.PORT || 8080);
