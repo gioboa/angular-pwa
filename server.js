@@ -80,12 +80,16 @@ app.post('/notify', function(req, res) {
 
 app.post('/list', function(req, res) {
   let authSecret = req.get('auth-secret');
+  let ids = [];
   if (authSecret === AUTH_SECRET) {
-    subscribers.forEach((pushSubscription, index) =>
-      console.log(`${index} - ${pushSubscription.name}`)
-    );
+    subscribers.forEach((pushSubscription, index) => {
+      ids.push(`${pushSubscription.name}`);
+    });
   }
-  res.send(JSON.parse('{"message": "List ok!"}'));
+  let result = '{"message" : "List ok"'
+  ids.map((id,index) => result +=`,"${index}": "${id}"`);
+  result +='}';
+  res.send(JSON.parse(result));
 });
 
 app.post('/subscribe', function(req, res) {
